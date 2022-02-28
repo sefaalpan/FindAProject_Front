@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="freelance" *ngFor="let f of freelances">
+        <div>
+            <i class="fa fa-user"></i>
+            {{f.nom | titlecase}} {{ f.prenom | titlecase}}
+        </div>
+        <div>
+            <i class="fa fa-user-circle"></i>
+            Username : {{f.username}}
+        </div>
+        <div>
+            <i class="fa fa-globe"></i>
+            Localisation : {{f.adresse.pays}}
+        </div>
+        <div *ngIf="f.projets && f.projets.length > 1">
+            <i class="fa fa-tasks"></i>
+            Nombres de projets réalisés : {{f.projets.length}}
+        </div>
+        <div *ngIf="f.projets && f.projets.length == 1">
+            <i class="fa fa-tasks"></i>
+            Nombre de projet réalisé : 1
+        </div>
+        <div *ngIf="!f.projets || f.projets.length < 1">
+            <i class="fa fa-tasks"></i>
+            Nombre de projet réalisé : 0
+        </div>
+        <div id="buttons">
+            <button>
+                Donner une note
+            </button>
+            <button style="background-color:red" *ngIf="admin" (click)="delete(f.id)"> Supprimer </button>
+        </div>
+    </div>
+</div>

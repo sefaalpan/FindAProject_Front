@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div class="paragraphes">
+        <p *ngIf="username">
+            Hello
+            <span>
+                {{username}},
+            </span>
+            bienvenue sur Find A Project <br>
+        </p>
+        <p *ngIf="!username">
+            Bienvenue sur Find A Project
+        </p>
+        <p>
+            Vous êtes freelance? Vous trouverez une panoplie de projets à réaliser
+        </p>
+        <p>
+            Vous cherchez un freelance? Déposez votre projet et il sera réalisé dans les plus brefs délais
+        </p>
+        <p *ngIf="!username">
+            Alors n'attendez plus connectez-vous ou inscrivez-vous !
+        </p>
+        <p *ngIf="discriminator==='FREELANCE'">
+            <button [routerLink]="['/projets']">
+                Voir les projets
+            </button>
+        </p>
+        <p *ngIf="discriminator==='CLIENT'">
+            <button [routerLink]="['/freelances']">
+                Voir les freelances
+            </button>
+        </p>
+    </div>
+    <img src="/assets/img/home-bg.webp" width="100%">
+
+</div>

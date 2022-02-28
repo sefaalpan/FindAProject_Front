@@ -1,0 +1,87 @@
+<div class="container" *ngIf="user">
+
+    <div class="profil">
+        <div>
+            <i id="card" class="fa fa-address-card"></i>
+        </div>
+        <div>
+            {{user.prenom | titlecase}} {{user.nom | titlecase}}
+        </div>
+        <div>
+            <i class="fa fa-user"></i>
+            {{user.discriminator | titlecase}}
+        </div>
+        <div>
+            <i class="fa fa-globe"></i>
+            {{user.adresse.pays | titlecase}}
+        </div>
+        <div>
+            <i class="fa fa-birthday-cake"></i>
+            {{user.naissance}}
+        </div>
+        <div>
+            <i class="fa fa-user-circle"></i>
+            {{user.username}}
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            {{user.email}}
+        </div>
+        <div>
+            <button (click)="afficher=!afficher">
+                <span *ngIf="!afficher">
+                    Voir mes projets
+                </span>
+                <span *ngIf="afficher">
+                    Cacher mes projets
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="freelance">
+
+    <div class="profil">
+        <div>
+            <i id="card" class="fa fa-address-card"></i>
+        </div>
+        <div>
+            {{freelance.prenom | titlecase}} {{freelance.nom | titlecase}}
+        </div>
+        <div>
+            <i class="fa fa-user"></i>
+            {{freelance.discriminator}}
+        </div>
+        <div>
+            <i class="fa fa-globe"></i>
+            {{freelance.adresse.pays | titlecase}}
+        </div>
+        <div>
+            <i class="fa fa-birthday-cake"></i>
+            {{freelance.naissance}}
+        </div>
+        <div>
+            <i class="fa fa-user-circle"></i>
+            {{freelance.username}}
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            {{freelance.email}}
+        </div>
+        <div>
+            <button (click)="afficher=!afficher">
+                <span *ngIf="!afficher">
+                    Voir mes projets
+                </span>
+                <span *ngIf="afficher">
+                    Cacher mes projets
+                </span>
+            </button>
+        </div>
+
+    </div>
+</div>
+<app-mes-projets *ngIf="afficher" [projets]="projets">
+    Mes demandes projets 
+</app-mes-projets>

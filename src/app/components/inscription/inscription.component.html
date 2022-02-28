@@ -1,0 +1,187 @@
+<div class="container">
+    <h2>Créez votre compte </h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div title="Choisissez un type de compte">
+            <fieldset>
+                <legend>Type de compte</legend>
+                <select formControlName="discriminator">
+                    <option value="" selected disabled hidden>Choisissez un type de compte</option>
+                    <option value="CLIENT" selected>Client</option>
+                    <option value="FREELANCE">Freelance</option>
+                </select>
+            </fieldset>
+        </div>
+        <div>
+            <span *ngIf="form.controls.discriminator.errors">
+                Choisissez le type de compte
+            </span>
+        </div>
+        <div *ngIf="form.get('discriminator')?.dirty">
+            <fieldset>
+                <legend>Informations personnelles</legend>
+                <div title="Votre nom">
+                    <input type="text" placeholder="Nom" formControlName="nom">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.nom.errors">
+                        Insérez votre nom
+                    </span>
+                </div>
+                <div title="Votre prénom">
+                    <input type="text" placeholder="Prénom" formControlName="prenom">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.prenom.errors">
+                        Insérez votre prénom
+                    </span>
+                </div>
+            </fieldset>
+        </div>
+        <div *ngIf="form.get('nom')?.dirty && form.get('prenom')?.dirty">
+            <fieldset>
+                <legend>Informations de connexion</legend>
+                <div title="Votre e-mail">
+                    <input type="text" placeholder="E-mail" formControlName="email">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.email.errors">
+                        Insérez votre email
+                    </span>
+                </div>
+
+                <div title="Votre username">
+                    <input type="text" placeholder="Username" formControlName="username">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.username.errors">
+                        Insérez votre username
+                    </span>
+                </div>
+            </fieldset>
+        </div>
+        <div *ngIf="form.get('email')?.dirty && form.get('username')?.dirty">
+            <fieldset>
+                <legend>Choisissez un mot de passe robuste</legend>
+                <div title="Votre password">
+                    <input type="password" placeholder="Password" formControlName="password">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.password.errors">
+                        <!-- Insérez votre mot de passe -->
+                        {{form.controls.password.errors.errorPassword}}
+                    </span>
+                </div>
+                <div title="Retaper votre mot de passe pour le confirmer">
+                    <input type="password" placeholder="Confirmer le password" formControlName="confirmPassword">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.confirmPassword.errors">
+                        <!-- Réinsérez votre mot de passe -->
+                        {{ form.controls.confirmPassword.errors.errorPassword }}
+                    </span>
+                </div>
+                <div *ngIf="(form.get('password')?.value !== form.get('confirmPassword')?.value)">
+                    <span>
+                        Le mot de passe et la confirmation de mot de passe ne sont pas les mêmes
+                    </span>
+                </div>
+            </fieldset>
+        </div>
+        <div
+            *ngIf="(form.get('password')?.dirty && form.get('confirmPassword')?.dirty) && (form.get('password')?.value === form.get('confirmPassword')?.value)">
+            <fieldset>
+                <legend>Date de naissance</legend>
+                <div title="Votre date de naissance">
+                    <input type="text" onfocus="(this.type='date')" placeholder="Date de naissance ex:(19-05-1989)"
+                        formControlName="naissance">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.naissance.errors">
+                        Insérez votre date de naissance
+                    </span>
+                </div>
+            </fieldset>
+        </div>
+        <div *ngIf="form.get('naissance')?.dirty">
+            <fieldset>
+                <legend>Adresse</legend>
+                <div title="Votre rue">
+                    <input type="text" placeholder="Rue" formControlName="rue">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.rue.errors">
+                        Insérez le nom de votre rue
+                    </span>
+                </div>
+                <div title="Votre numéro">
+                    <input type="text" placeholder="Numéro" formControlName="numero">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.numero.errors">
+                        Insérez le numéro de votre maison
+                    </span>
+                </div>
+                <div title="Votre ville">
+                    <input type="text" placeholder="Ville" formControlName="ville">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.ville.errors">
+                        Insérez le nom de votre ville
+                    </span>
+                </div>
+                <div title="Votre code postal">
+                    <input type="text" placeholder="Code postal" formControlName="cp">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.cp.errors">
+                        Insérez votre code postal
+                    </span>
+                </div>
+                <div title="Votre pays">
+                    <input type="text" placeholder="Pays" formControlName="pays">
+                </div>
+                <div>
+                    <span *ngIf="form.controls.pays.errors">
+                        Insérez votre pays
+                    </span>
+                </div>
+            </fieldset>
+        </div>
+        <div>
+            <span *ngIf="error">
+                {{error}}
+            </span>
+        </div>
+        <div>
+            <ul *ngIf="nomErrors">
+                <li *ngFor="let err of nomErrors">{{ err }}</li>
+            </ul>
+        </div>
+        <div
+            *ngIf="form.get('rue')?.dirty && form.get('numero')?.dirty && form.get('ville')?.dirty && form.get('cp')?.dirty && form.get('pays')?.dirty">
+            <div title="Valider le formulaire" *ngIf="form.valid">
+                <input type="submit" value="Valider" [disabled]="!form.valid">
+            </div>
+            <div *ngIf="form.invalid" style="margin-bottom: 15px;">
+                <button disabled id="desactiveBtn"> Formulaire non valide </button>
+            </div>
+        </div>
+
+        <div *ngIf="validErrors">
+            <ul>
+                <li style="text-align: center; color: red;list-style-type: none;" *ngFor="let fe of validErrors.fieldErrors">
+                    <!-- {{e.fieldErrors.message}} : {{e.fieldName}} -->
+                    {{fe.message | titlecase}} :  Champ {{fe.fieldName | titlecase}}
+                </li>
+                <li style="text-align: center; color: red;" *ngFor="let ge of validErrors.globalErrors">
+                    {{ge | titlecase}}
+                </li>
+            </ul>
+        </div>
+
+
+    </form>
+
+
+</div>

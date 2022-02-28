@@ -1,0 +1,50 @@
+<nav>
+
+    <ul>
+
+        <ng-template #login>
+            
+            <div>
+    
+                <li>
+                    <a routerLink="connexion" routerLinkActive="active">Connexion</a>
+                </li>
+                <li>
+                    <a routerLink="inscription"  routerLinkActive="active">Inscription</a>
+                </li>
+            </div>
+
+        </ng-template>
+        <div>
+            <li>
+                <a routerLink="home"  routerLinkActive="active">Home</a>
+            </li>
+            <li>
+                <a routerLink="categories"  routerLinkActive="active">Catégories</a>
+            </li>
+            <li>
+                <a routerLink="projets"  routerLinkActive="active">Projets</a>
+            </li>
+        </div>
+        
+        <div *ngIf="isLoggedIn$ | async; else login;">
+           
+            <li *ngIf="discriminator==='CLIENT'">
+                <a routerLink="freelances"  routerLinkActive="active">Freelances</a>
+            </li>
+            
+            <li>
+                <a routerLink="create-projet"  routerLinkActive="active">Ajouter un nouveau projet</a>
+            </li>
+            <li>
+                <a (click)="logout()">Déconnexion</a>
+            </li>
+            <li>
+                <a routerLink="profil"  routerLinkActive="active">{{username}}</a>
+                <!-- <a routerLink="profil">Mon profil</a> -->
+            </li>
+        </div>
+
+        
+    </ul>
+</nav>

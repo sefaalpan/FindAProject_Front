@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="projet" *ngFor="let p of projets">
+        <div class="content">
+            <h2>
+                {{p.titre}}
+            </h2>
+            <span>
+                {{p.prix}} € - {{p.date | localedate}} - {{p.username | titlecase}}
+            </span>
+            <p>
+                {{p.resume}}
+            </p>
+            <div>
+                <button (click)="goToProjet(p.projet_id)">
+                    Voir les détails du projet
+                </button>
+                <button *ngIf="username===p.username" (click)="delete(p.projet_id, p.username)" style="background-color:red">
+                    Supprimer le projet
+                </button>
+            </div>
+            <div *ngIf="errorSupp">
+                <p style="color:red">
+                    {{errorSupp}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

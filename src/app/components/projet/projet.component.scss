@@ -1,0 +1,99 @@
+.container {
+    margin: auto;
+    width: 60%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.projet {
+    margin: auto;
+    width: 80%;
+    border-radius: 0 0 15px 15px;
+    background-color: rgb(25, 27, 28);
+    padding: 30px;
+    margin-bottom: 15px;
+}
+.titre {
+    // font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background-color: rgb(8, 43, 61);
+
+    // background: linear-gradient(45deg, rgb(18, 47, 61), rgb(25, 27, 28));
+    width: 80%;
+    padding: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+    border-radius: 15px 15px 0 0;
+}
+
+.resume {
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    font-size: 19px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    background-color: rgb(24, 25, 26);
+}
+.resume > div:nth-child(1) {
+    padding: 30px;
+    display: block;
+}
+
+.infos,
+#categorie {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(27, 24, 24);
+}
+.infos > div {
+    border: 1px solid grey;
+    padding: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.infos > div:nth-child(1) {
+    background-color: rgb(29, 54, 68);
+    // background: linear-gradient(rgb(9, 90, 131), rgb(7, 72, 104));
+}
+.infos > div:nth-child(2) {
+    background-color: rgb(21, 43, 56);
+    // background: linear-gradient(, rgb(6, 48, 70));
+}
+#categorie {
+    padding: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgb(2, 24, 36);
+    // background: linear-gradient(rgb(6, 48, 70), rgb(0, 28, 43));
+}
+
+// .infos > div > span,
+// #categorie > div > span {
+//     display: flex;
+//     flex-direction: row;
+//     padding: 50px;
+// }
+
+.infos > div,
+#categorie > div {
+    display: flex;
+    flex-direction: row;
+}
+.infos > div > span:nth-child(2),
+#categorie > div > span:nth-child(2) {
+    margin-left: 20px;
+}
+
+input[type="submit"] {
+    margin: auto;
+    display: block;
+    margin-top: 30px;
+    font-size: 18px;
+}

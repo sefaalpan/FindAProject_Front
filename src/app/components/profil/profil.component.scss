@@ -1,0 +1,26 @@
+.container {
+    // width: fit-content;
+    width: 60%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.profil {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 50%;
+    text-align: center;
+    border: 1px solid grey;
+    background-color: rgb(25, 27, 28);
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+.profil > div {
+    padding: 10px;
+}
+
+#card {
+    font-size: 150px;
+}

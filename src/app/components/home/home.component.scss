@@ -1,0 +1,43 @@
+.container {
+    width: 100%;
+}
+
+.paragraphes {
+    border: 1px solid rgb(28, 134, 247);
+    border-radius: 30px;
+    width: 40%;
+    margin: auto;
+    // margin-top: 20px;
+    margin-top: 40px;
+    background-color: rgb(23, 25, 26);
+}
+p {
+    font-size: 1.5em;
+    // margin-bottom: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+img {
+    position: absolute;
+    margin-top: -80px;
+    z-index: -1;
+}
+p:nth-child(1) {
+    // margin-top: 40px;
+    // padding-top: 19px;
+    color: rgb(28, 134, 247);
+}
+
+p:nth-child(2) {
+    border-top: 1px solid rgb(28, 134, 247);
+}
+p:nth-child(3) {
+    color: rgb(92, 171, 255);
+    margin-bottom: -15px;
+}
+
+button {
+    cursor: pointer;
+    z-index: 100;
+}

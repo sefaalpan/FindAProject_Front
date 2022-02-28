@@ -1,0 +1,69 @@
+<div *ngIf="projets.length<=0" style="text-align: center;">
+    <h1>
+        Pas encore de projets
+    </h1>
+    <button [routerLink]="['/create-projet']">
+        Ajouter un nouveau projet
+    </button>
+</div>
+
+
+<div class="container">
+
+    <h2 *ngIf="categorie">Tous les projets de la catégorie : {{categorie.label}} </h2>
+    <h2 *ngIf="!categorie && projets.length>0">{{title}}</h2>
+
+
+    <section class="tri" *ngIf="projets.length>1 && ($loggedin | async)">
+        <em>
+            Trier par :
+        </em>
+        <span (click)="byTitre(); titreAsc=!titreAsc">
+            Titre
+            <em *ngIf="titreAsc"><i class="fa fa-arrow-up"></i></em>
+            <em *ngIf="!titreAsc"><i class="fa fa-arrow-down"></i></em>
+        </span>
+        <span (click)="byDate(); dateAsc=!dateAsc; catAsc=!catAsc">
+            Date 
+            <em *ngIf="dateAsc"><i class="fa fa-arrow-up"></i></em>
+            <em *ngIf="!dateAsc"><i class="fa fa-arrow-down"></i></em>
+        </span>
+        <!-- <span *ngIf="categorie" (click)="byCategorie(); catAsc=!catAsc">
+            Catégorie
+        </span> -->
+        <span (click)="byDisponibilite(); clicked=!clicked">
+            Disponible
+        </span>
+    </section>
+
+    <div class="projet" *ngFor="let p of projets">
+
+        <div class="content">
+
+            <h2>
+                {{p.titre}}
+            </h2>
+            <div id="infos">
+                <span>
+                    Prix : {{p.prix}} €
+                </span>
+                <span>
+                    Déposé le {{p.date | localedate}}
+                </span>
+                <span>
+                    Par : {{p.username | titlecase}}
+                </span>
+                <span id="reserve"
+                    [ngStyle]="p.reserve ? {'backgroundColor':'rgb(165, 2, 2)'} : {'backgroundColor':'#028A0F'}">
+                    {{p.reserve ? 'Réservé' : 'Disponible'}}
+                </span>
+            </div>
+            <p>
+                {{p.resume}}
+            </p>
+            <button (click)="goToProjet(p.projet_id)">
+                Voir les détails du projet
+            </button>
+        </div>
+    </div>
+</div>

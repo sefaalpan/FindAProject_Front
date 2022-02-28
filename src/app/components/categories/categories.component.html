@@ -1,0 +1,60 @@
+<div class="search">
+    <i class="fa fa-search"></i>
+    <input type="text" [(ngModel)]="search" placeholder="Quel service recherchez-vous?">
+    <input type="submit" value="Rechercher" (click)="rechercher()">
+
+    <div>
+        <a (click)="search=''; rechercher()">Voir toutes les catégories</a>
+    </div>
+    <div *ngIf="admin">
+        <button style="background-color: red;" (click)="afficherForm=!afficherForm">
+            Ajouter une catégorie
+        </button>
+    </div>
+    
+</div>
+<div>
+    <form *ngIf="afficherForm" (ngSubmit)="onSubmit()" [formGroup]="form">
+        <h2>Ajoutez une catégorie</h2>
+        <div>
+            <input type="text" formControlName="label" placeholder="Nom de la catégorie">
+        </div>
+        <div>
+            <input type="submit" value="Ajouter la catégorie" [disabled]="form.invalid">
+        </div>
+
+    </form>
+</div>
+<div *ngIf="modif">
+    <form (ngSubmit)="onUpdate()" [formGroup]="form">
+        <h2>Modifiez la catégorie</h2>
+    <div>
+        <input type="text" formControlName="label" placeholder="Nom de la catégorie">
+    </div>
+    <div>
+        <input type="submit" value="Modifier la catégorie" [disabled]="form.invalid">
+    </div>
+
+    </form>
+</div>
+<div class="container">
+
+
+    <div class="card" *ngFor="let c of categories">
+        <div>
+            <span>{{c.label}}</span>
+        </div>
+        <div>
+            <button (click)="displayProjects(c.id)">Voir les projets</button>
+        </div>
+        <div *ngIf="admin">
+            <button style="background-color: rgb(189, 124, 3);" (click)="modifier(c.label, c.id)">
+                Modifier
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="categories.length === 0">
+        Pas de catégorie correspondant
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container" *ngIf="projet">
+    <div class="titre">
+        <div>
+            <h3>
+                {{projet.titre}}
+            </h3>
+
+        </div>
+        <div>
+            <h4>
+                Par {{projet.username | titlecase}}
+            </h4>
+        </div>
+    </div>
+    <div class="projet">
+
+
+        <div class="resume">
+            <div>
+                {{projet.resume}}
+            </div>
+            <div class="infos">
+                <div>
+                    <span>
+                        Budget :
+                    </span>
+                    <span>
+                        {{projet.prix}} €
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        Date :
+                    </span>
+                    <span>
+
+                        {{projet.date | localedate}}
+                    </span>
+                </div>
+            </div>
+            <div id=categorie>
+                <div>
+                    <span>
+                        Catégorie :
+                    </span>
+                    <span>
+                        {{projet.categorie.label | titlecase}}
+                    </span>
+
+                </div>
+            </div>
+        </div>
+        <div *ngIf="afficher && !projet.reserve && (projet.username !== freelance.username)">
+            <input type="submit" value="Je veux développer ce projet" (click)="developper()">
+        </div>
+        <div *ngIf="projet.reserve">
+            <button disabled
+                style="background-color: red; margin: auto; display: block; cursor: auto; margin-top: 20px; cursor:not-allowed">
+                Ce projet est réservé
+            </button>
+        </div>
+    </div>
+</div>

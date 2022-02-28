@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~font-awesome/scss/font-awesome.scss";
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(37, 41, 43);
+    height: 100%;
+}
+
+textarea::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 20px; /* width of the entire scrollbar */
+    overflow: scroll;
+}
+
+body::-webkit-scrollbar-button {
+    background: rgb(57, 59, 59); /* color of the tracking area */
+}
+textarea::-webkit-scrollbar-corner,
+textarea::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background-color: rgb(35, 38, 39);
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(73, 75, 75); /* color of the tracking area */
+}
+
+
+textarea::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: rgb(57, 59, 59); /* color of the tracking area */
+    // border: 3px solid orange; /* creates padding around scroll thumb */
+}
+
+input[type="text"] {
+    background-color: rgb(44, 42, 42);
+}
+
+button {
+    background-color: rgb(47, 47, 196);
+    border: none;
+    font-size: medium;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+button:hover {
+    background-color: rgb(56, 56, 241);
+    transition: 0.5s;
+}
+
+input[type="submit"] {
+    background-color: rgb(47, 47, 196);
+    border: none;
+    border-radius: 5px;
+    padding: 12.5px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+input[type="submit"]:hover {
+    background-color: #3459ff;
+    transition: 0.5s;
+}

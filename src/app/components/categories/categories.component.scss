@@ -1,0 +1,148 @@
+.container {
+    margin: auto;
+    margin-top: 50px;
+    width: 70%;
+    display: flex;
+    flex-flow: wrap;
+    // flex-direction: row;
+    justify-content: center;
+}
+
+.card {
+    width: 25%;
+    background-color: rgb(25, 27, 28);
+    color: white;
+    border: 1px solid grey;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    margin: 20px;
+}
+// .card:nth-child(3n) {
+
+//     page-break-after: always; /* CSS 2.1 syntax */
+//     break-after: always; /* New syntax */
+//   }
+
+.card:hover {
+    // background-color: rgb(27, 31, 32);
+    background-color: rgb(18, 20, 20);
+    color: white;
+    transition: 0.5s;
+}
+
+.card > div {
+    margin: 29px;
+}
+
+button {
+    background-color: rgb(47, 47, 196);
+    border: none;
+    font-size: medium;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(56, 56, 241);
+    transition: 0.5s;
+}
+
+.search {
+    margin: auto;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+label {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+input[type="text"],
+input[type="text"]:focus {
+    padding: 11px;
+    padding-top: 12px;
+    width: 200px;
+    border: none;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    background-color: rgb(36, 31, 31);
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: rgb(47, 47, 196);
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 12px;
+    padding-top: 13px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: rgb(56, 56, 241);
+    transition: 0.5s;
+}
+.fa {
+    background-color: rgb(36, 31, 31);
+    // font-size: 16px;
+    padding: 11px;
+    border: none;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-left: 1px solid grey;
+    border-radius: 5px 0 0 5px;
+}
+
+.search > div {
+    margin-top: 40px;
+}
+.search > div > a {
+    cursor: pointer;
+}
+.search > div > a:hover {
+    color: rgb(75, 75, 255);
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+}
+
+::placeholder {
+    color: rgb(175, 175, 175);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 30%;
+    margin: auto;
+    flex-flow: column;
+    border: 1px solid grey;
+    border-radius: 6px;
+    padding: 40px;
+}
+form > div > input[type="text"] {
+    border: 2px solid rgb(105, 105, 105);
+    border-radius: 5px;
+}
+form > div > input[type="submit"] {
+    border-radius: 4px;
+}
+
+form > div {
+    display: block;
+    margin: auto;
+}
+
+::placeholder, h2{
+    text-align: center;
+}
+h2{
+    padding-bottom: 10px;
+    margin-top:-15px;
+}

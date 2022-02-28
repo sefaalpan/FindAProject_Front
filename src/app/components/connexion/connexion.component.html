@@ -1,0 +1,47 @@
+<div class="container">
+
+    <h2>
+        Connectez-vous
+    </h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div title="Votre username">
+            <i class="fa fa-user"></i>
+            <input type="text" placeholder="Username" formControlName="username">
+        </div>
+
+        <div>
+            <span *ngIf="form.controls.username.touched && form.controls.username.errors" style="color:red">
+                {{form.controls.username.errors.errorFieldLength}}
+            </span>
+        </div>
+
+        <div title="Votre mot de passe">
+            <i class="fa fa-lock"></i>
+            <input type="password" placeholder="Password" formControlName="password">
+        </div>
+
+        <div>
+            <section *ngIf="form.controls.password.touched && form.controls.password.errors" style="text-align:center; color:red">
+                {{form.controls.password.errors.errorFieldLength}}
+                <br>
+                {{form.controls.password.errors.errorPassword}}
+            </section>
+        </div>
+
+        <div *ngIf="errors && !form.controls.username.touched && !form.controls.password.touched">
+            <span style="color: red;">
+                {{errors}}
+            </span>
+        </div>
+        <div>
+            <input type="submit" value="Se connecter"
+                [ngStyle]="form.invalid ? {'backgroundColor':'red', 'cursor':'not-allowed'} : {'backgroundColor':'blue'}"
+                [disabled]="form.invalid">
+        </div>
+
+    </form>
+
+
+</div>

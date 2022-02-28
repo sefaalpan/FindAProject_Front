@@ -1,0 +1,55 @@
+<div class="container">
+    <h2>Créez votre projet </h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div title="Choissisez une catégorie">
+            <select formControlName="categorie">
+                <option selected disabled hidden value="">Choissisez une catégorie</option>
+                <option *ngFor="let c of categories" value="{{c.label}}">{{c.label | titlecase}}</option>
+            </select>
+            <span *ngIf="form.controls.categorie.errors">
+                Choisissez une catégorie
+            </span>
+        </div>
+        <div title="Choisissez un titre">
+            <input type="text" placeholder="Titre" formControlName="titre">
+            <span *ngIf="form.controls.titre.errors">
+                Choisissez un titre
+            </span>
+        </div>
+        <div title="Choisissez un prix">
+            <input type="number" min="10" max="10000" placeholder="Prix" formControlName="prix">
+            <span *ngIf="form.controls.prix.errors">
+                Choisissez un prix
+            </span>
+        </div>
+        <div title="Descriptif de votre projet">
+            <textarea cols="30" rows="10" placeholder="Veuillez ajouter un descriptif de votre projet"
+                formControlName="resume">
+            </textarea>
+            <span *ngIf="form.controls.resume.errors">
+                Ajoutez une description du projet
+            </span>
+        </div>
+        <div>
+            <input type="submit" *ngIf="form.valid" value="Valider" [disabled]="!form.valid" />
+            <input type="submit" *ngIf="!form.valid" style="background-color: rgb(165, 2, 2);cursor: not-allowed;"
+                value="Valider" [disabled]="!form.valid" />
+        </div>
+
+        <div *ngIf="validErrors">
+            <ul>
+                <li style="text-align: center; color: red;list-style-type: none;" *ngFor="let fe of validErrors.fieldErrors">
+                    <!-- {{e.fieldErrors.message}} : {{e.fieldName}} -->
+                    {{fe.message | titlecase}} :  Champ {{fe.fieldName | titlecase}}
+                </li>
+                <li style="text-align: center; color: red;" *ngFor="let ge of validErrors.globalErrors">
+                    {{ge | titlecase}}
+                </li>
+            </ul>
+        </div>
+
+    </form>
+
+</div>

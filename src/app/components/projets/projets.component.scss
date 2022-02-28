@@ -1,0 +1,84 @@
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.projet {
+    width: 70%;
+    border: none;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 30px;
+    background-color: rgb(25, 27, 28);
+    transition: 0.7s;
+}
+.content {
+    width: 90%;
+    margin: auto;
+}
+.projet:hover {
+    width: 69%;
+    background-color: rgb(18, 20, 20);
+    transition: 0.7s;
+    border: 1px solid grey;
+    // cursor: pointer;
+}
+p {
+    margin-top: 30px;
+    // display: block;
+}
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#infos {
+    display: flex;
+    flex-direction: row;
+}
+
+#infos > span {
+    margin-right: 10px;
+    padding: 10px;
+}
+#infos > span:nth-child(1) {
+    margin-left: -10px;
+}
+#infos span:nth-child(4) {
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.tri {
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+    padding: 15px;
+}
+.tri > span {
+    cursor: pointer;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+
+.tri > span:hover {
+    color: rgb(51, 143, 248);
+
+    i {
+    color: rgb(51, 145, 248);
+    }
+}
+
+.tri > span:nth-child(1) {
+    text-decoration: none;
+}
