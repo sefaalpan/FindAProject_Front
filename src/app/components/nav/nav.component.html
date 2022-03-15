@@ -7,40 +7,40 @@
             <div>
     
                 <li>
-                    <a routerLink="connexion" routerLinkActive="active">Connexion</a>
+                    <a routerLink="connexion" routerLinkActive="active" (click)="setTitle('Connexion')">Connexion</a>
                 </li>
                 <li>
-                    <a routerLink="inscription"  routerLinkActive="active">Inscription</a>
+                    <a routerLink="inscription"  routerLinkActive="active" (click)="setTitle('Inscription')">Inscription</a>
                 </li>
             </div>
 
         </ng-template>
         <div>
             <li>
-                <a routerLink="home"  routerLinkActive="active">Home</a>
+                <a routerLink="home"  routerLinkActive="active" (click)="setTitle('Find A Project')">Home</a>
             </li>
             <li>
-                <a routerLink="categories"  routerLinkActive="active">Catégories</a>
+                <a routerLink="categories"  routerLinkActive="active" (click)="setTitle('Catégories')">Catégories</a>
             </li>
             <li>
-                <a routerLink="projets"  routerLinkActive="active">Projets</a>
+                <a routerLink="projets"  routerLinkActive="active" (click)="setTitle('Projets')">Projets</a>
             </li>
         </div>
         
         <div *ngIf="isLoggedIn$ | async; else login;">
            
             <li *ngIf="discriminator==='CLIENT'">
-                <a routerLink="freelances"  routerLinkActive="active">Freelances</a>
+                <a routerLink="freelances"  routerLinkActive="active" (click)="setTitle('Freelances')">Freelances</a>
             </li>
             
             <li>
-                <a routerLink="create-projet"  routerLinkActive="active">Ajouter un nouveau projet</a>
+                <a routerLink="create-projet"  routerLinkActive="active" (click)="setTitle('Ajouter un projet')">Ajouter un nouveau projet</a>
             </li>
             <li>
                 <a (click)="logout()">Déconnexion</a>
             </li>
             <li>
-                <a routerLink="profil"  routerLinkActive="active">{{username}}</a>
+                <a routerLink="profil"  routerLinkActive="active" (click)="setTitle(username ??'Profil')">{{username}}</a>
                 <!-- <a routerLink="profil">Mon profil</a> -->
             </li>
         </div>

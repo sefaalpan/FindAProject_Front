@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -14,7 +15,7 @@ export class NavComponent implements OnInit {
   isLoggedIn$ !: Observable<boolean>;
   discriminator: string | null = '';
 
-  constructor(private _service: AuthService, private router: Router) {
+  constructor(private _service: AuthService, private router: Router, private titleService : Title) {
   }
 
   ngOnInit(): void {
@@ -35,4 +36,11 @@ export class NavComponent implements OnInit {
     this._service.logOut();
     this.router.navigate(['connexion'])
   }
+
+  setTitle(newTitle:string){
+    newTitle = newTitle.charAt(0).toUpperCase() + newTitle.substring(1, newTitle.length);     
+    this.titleService.setTitle(newTitle);
+    
+  }
+  
 }
